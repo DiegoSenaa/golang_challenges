@@ -17,4 +17,4 @@
 
 ## Installation
 
-Cada projeto vai ter um read dentro do folder, para rodar o mesmo.
+Cada projeto vai ter um read dentro do folder, para rodar o mesmo. Basta clonar o projeto e entra na pasta e seguir o passo a passo.

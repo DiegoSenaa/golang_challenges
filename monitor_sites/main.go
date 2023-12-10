@@ -97,6 +97,9 @@ func jsonLoad() []Site {
 }
 
 func callHttp(site Site, responseChannel chan<- string) {
+
+	var feedback string
+
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
@@ -114,7 +117,13 @@ func callHttp(site Site, responseChannel chan<- string) {
 
 	defer response.Body.Close()
 
-	responseChannel <- fmt.Sprintf("[Info] [URL: %s] [StatusCode: %d]", site.RootDomain, response.StatusCode)
+	if response.StatusCode == 200 {
+		feedback = fmt.Sprintf("[Info] [URL: %s] [StatusCode: %d]", site.RootDomain, response.StatusCode)
+	} else {
+		feedback = fmt.Sprintf("[Warning] [URL: %s] [StatusCode: %d]", site.RootDomain, response.StatusCode)
+	}
+
+	responseChannel <- feedback
 }
 
 func writeFile(buffer *bufio.Writer, result string, position int) {
