@@ -12,5 +12,5 @@ $./main
 
 Ou se tu for preguiçoso faz assim:
 
-$go run main.go
+$ go run main.go
 ```
