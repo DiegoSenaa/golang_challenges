@@ -8,6 +8,7 @@
 ## Features
 
 - Monitoramento de sites, lendo de json [OK]
+- Conta Bancaria [DEV]
 - Api rest [TODO]
 
 
